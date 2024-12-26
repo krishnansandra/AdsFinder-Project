@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{ useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './page/Login';
+import Adsadd from './page/admin/Adsadd';
+import Layout from './Layout';
+import ViewAds from './page/ViewAds';
+import ShowAds from './page/admin/ShowAds';
+import AdminHome from './page/admin/AdminHome';
+import Singleads from './page/Singleads';
+import Master from './Master';
+import Editads from './Editads';
+import About from './About';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+ return(
+    <BrowserRouter>
+    <Routes >
+ 
+
+    <Route path='/' element={<Layout/>}></Route>
+    <Route path='/login' element={<Login />}></Route>
+    <Route path='/about' element={<About/>}></Route>
+    <Route path='/admin' element={<AdminHome/>}></Route>
+    <Route path='/adsadd' element={<Adsadd />}></Route>
+    <Route path='/viewads' element={<ViewAds />}></Route>
+     <Route path='/showads' element={<ShowAds />}></Route>
+     <Route path='/show-ads/:id' element={<Singleads/>}></Route>
+
+     <Route path='/editads/:id' element={<Editads/>}></Route>
+
+   
+    
+  
+
+    </Routes>
+    </BrowserRouter>
+ );
+   }
 
 export default App;
